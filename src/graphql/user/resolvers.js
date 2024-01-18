@@ -1,6 +1,7 @@
-const users = async (_, __, { getUsers }) => {
-  const users = await getUsers();
-  return users.json(); // converte para json
+const users = async (_, { input }, { getUsers }) => {
+  const apiFiltersInpunt = new URLSearchParams(input);
+  const response = await getUsers('/?' + apiFiltersInpunt);
+  return response.json();
 };
 
 const user = async (_, { id }, { getUsers }) => {
