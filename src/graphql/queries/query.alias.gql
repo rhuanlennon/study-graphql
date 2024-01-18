@@ -1,0 +1,11 @@
+query  GET_POST_ALIAS {
+  post342: post(id: "342") {
+    postId: id
+    id
+    title
+  }
+  post(id: "860") {
+    id
+    title
+  }
+}
