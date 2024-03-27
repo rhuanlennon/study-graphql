@@ -1,12 +1,10 @@
-const users = async (_, { input }, { getUsers }) => {
-  const apiFiltersInpunt = new URLSearchParams(input);
-  const response = await getUsers('/?' + apiFiltersInpunt);
-  return response.json();
+const users = async (_, { input }, { dataSources }) => {
+  const users = await dataSources.userApi.getUsers(input);
+  return users;
 };
 
-const user = async (_, { id }, { getUsers }) => {
-  const response = await getUsers('/' + id);
-  const user = await response.json();
+const user = async (_, { id }, { dataSources }) => {
+  const user = await dataSources.userApi.getUser(id);
   return user;
 };
 
